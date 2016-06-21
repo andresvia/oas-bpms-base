@@ -1,5 +1,8 @@
 publish:
   docker:
+    environment:
+      HTTP_PROXY: "http://10.20.4.15:3128"
+      NO_PROXY: "192.168.12.212"
     registry: 192.168.12.212:5000
     repo: negocio/bpms-base
     tag:
@@ -19,6 +22,8 @@ cache:
 
 notify:
   webhook:
+    environment:
+      HTTP_PROXY: "http://10.20.4.15:3128"
     urls:
       - "https://api.telegram.org/bot$$TELEGRAM_BOT_KEY/sendMessage"
     content_type: application/json
